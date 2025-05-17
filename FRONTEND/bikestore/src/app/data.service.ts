@@ -21,8 +21,8 @@ export class DataService {
     return this.http.get(`${this.apiUrl}/BikeBrand`);
   }
 
-  getAllBrands() {
-    return this.http.get<Brand[]>(`${this.apiUrl}/BikeBrand`);
+  getBrandById(id: string): Observable<Brand> {
+    return this.http.get<Brand>(`${this.apiUrl}/BikeBrand/${id}`);
   }
 
   updateBrand(id: string, brandData: BrandCreateUpdatePayload): Observable<Brand> {

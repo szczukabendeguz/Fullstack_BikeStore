@@ -9,7 +9,7 @@ import { ListModelsComponent } from './list-models/list-models.component';
 import { EditBrandComponent } from './edit-brand/edit-brand.component';
 import { EditModelComponent } from './edit-model/edit-model.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
@@ -25,7 +25,8 @@ import { provideHttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
