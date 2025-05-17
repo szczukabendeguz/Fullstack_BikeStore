@@ -40,5 +40,33 @@ namespace BikeStore.Endpoint.Controllers
             var bikeModels = logic.GetAllBikeModelsInAscendingPriceOrder();
             return Ok(bikeModels);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBikeModel(string id)
+        {
+            try
+            {
+                logic.DeleteBikeModel(id);
+                return Ok("Bike model deleted successfully.");
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateBikeModel(string id, [FromBody] BikeModelCreateDto dto)
+        {
+            try
+            {
+                logic.UpdateBikeModel(id, dto);
+                return Ok("Bike model updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }

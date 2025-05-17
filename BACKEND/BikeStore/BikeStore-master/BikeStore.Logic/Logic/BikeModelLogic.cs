@@ -51,5 +51,28 @@ namespace BikeStore.Logic.Logic
 
             return bikeModelDtos;
         }
+
+        public void DeleteBikeModel(string id)
+        {
+            var bikeModel = repo.FindById(id);
+            if (bikeModel == null)
+            {
+                throw new Exception("Bike model not found.");
+            }
+
+            repo.Delete(bikeModel);
+        }
+
+        public void UpdateBikeModel(string id, BikeModelCreateDto dto)
+        {
+            var existingModel = repo.FindById(id);
+            if (existingModel == null)
+            {
+                throw new Exception("Bike model not found.");
+            }
+
+            dtoProvider.Mapper.Map(dto, existingModel);
+            repo.Update(existingModel);
+        }
     }
 }

@@ -1,3 +1,12 @@
+export interface ModelCreateUpdatePayload {
+  brandId: string | null;
+  modelName: string | null;
+  frontTravel: number;
+  backTravel: number;
+  askingPrice: number;
+}
+
+
 export class Model {
     modelName: string | null;
     frontTravel: number;
