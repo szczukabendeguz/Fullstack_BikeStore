@@ -131,6 +131,8 @@ namespace BikeStore.Endpoint
 
             app.UseHttpsRedirection();
 
+            app.UseCors("AllowSpecificOrigins");
+
             app.UseAuthentication();
             app.UseAuthorization();
 
