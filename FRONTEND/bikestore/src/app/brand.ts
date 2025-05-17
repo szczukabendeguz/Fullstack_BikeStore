@@ -1,5 +1,10 @@
 import { Model } from "./model";
 
+export interface BrandCreateUpdatePayload {
+  brandName: string | null;
+  location: string | null;
+}
+
 export class Brand {
     id: string | null;
     brandName: string | null;
