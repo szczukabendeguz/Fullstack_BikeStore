@@ -1,1 +1,29 @@
-<p>edit-brand works!</p>
+<div class="container mt-4">
+  <h2>Márka szerkesztése</h2>
+
+  <div *ngIf="loading" class="text-center my-4">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <form *ngIf="!loading && !error" [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="brandName" class="form-label">Márkanév</label>
+      <input type="text" id="brandName" class="form-control" formControlName="brandName" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Székhely</label>
+      <input type="text" id="location" class="form-control" formControlName="location" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="logoUrl" class="form-label">Logó URL</label>
+      <input type="text" id="logoUrl" class="form-control" formControlName="logoUrl">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="brandForm.invalid">Mentés</button>
+    <a type="button" class="btn btn-secondary ms-2" routerLink="/brands">Mégse</a>
+  </form>
+</div>
