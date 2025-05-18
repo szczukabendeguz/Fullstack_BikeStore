@@ -1,1 +1,32 @@
-<p>list-models works!</p>
+<div class="container mt-4">
+  <h2>Kerékpár Modellek</h2>
+  <div class="d-flex justify-content-start mb-3">
+    <select class="form-select w-auto" [(ngModel)]="selectedBrandId" (change)="onBrandChange()">
+      <option [ngValue]="null">-- Összes márka --</option>
+      <option *ngFor="let brand of brands" [ngValue]="brand.id">{{ brand.brandName }}</option>
+    </select>
+  </div>
+  <div class="row" *ngIf="!loading && models.length">
+    <div class="col-md-4 mb-4" *ngFor="let model of models">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ model.modelName }}</h5>
+          <p class="card-text">
+            <strong>Első rugóút:</strong> {{ model.frontTravel }} mm<br>
+            <strong>Hátsó rugóút:</strong> {{ model.backTravel }} mm<br>
+            <strong>Ár:</strong> {{ model.askingPrice | currency:'USD' }}<br>
+            <strong>Id:</strong> {{ model.id }}<br>
+          </p>
+        </div>
+        <div *ngIf="model.id" class="card-footer d-flex justify-content-between">
+          <button class="btn btn-sm btn-outline-primary" (click)="editModel(model.id)">Szerkesztés</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="deleteModel(model.id)">Törlés</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !models.length" class="alert alert-info">
+    Nincsenek megjeleníthető modellek.
+  </div>
+</div>

@@ -6,7 +6,7 @@ export interface BrandCreateUpdatePayload {
 }
 
 export class Brand {
-    id: string | null;
+    id: string;
     brandName: string | null;
     location: string | null;
     models?: Model[];
@@ -14,7 +14,7 @@ export class Brand {
     averageAskingPrice: number;
 
     constructor(
-        id: string | null,
+        id: string,
         brandName: string | null,
         location: string | null,
         averageAskingPrice: number,

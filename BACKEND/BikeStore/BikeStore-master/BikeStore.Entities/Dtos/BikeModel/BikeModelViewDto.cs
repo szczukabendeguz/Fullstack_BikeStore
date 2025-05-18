@@ -9,6 +9,7 @@ namespace BikeStore.Entities.Dtos.BikeModel
 {
     public class BikeModelViewDto
     {
+        public string Id { get; set; }
         public string ModelName { get; set; } = "";
         public int FrontTravel { get; set; }
         public int BackTravel { get; set; }

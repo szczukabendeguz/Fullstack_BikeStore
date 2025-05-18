@@ -4,6 +4,7 @@ import { ListBrandsComponent } from './list-brands/list-brands.component';
 import { ListModelsComponent } from './list-models/list-models.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { EditBrandComponent } from './edit-brand/edit-brand.component';
+import { EditModelComponent } from './edit-model/edit-model.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/brands', pathMatch: 'full'},
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'models', component: ListModelsComponent},
   {path: 'statistics', component: StatisticsComponent},
   { path: 'brands/edit/:id', component: EditBrandComponent},
+  { path: 'models/edit/:id', component: EditModelComponent },
   {path: '**', redirectTo: '/brands', pathMatch: 'full'}
   
 ];

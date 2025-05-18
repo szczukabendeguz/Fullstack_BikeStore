@@ -10,19 +10,14 @@
   <form *ngIf="!loading && !error" [formGroup]="brandForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="brandName" class="form-label">Márkanév</label>
-      <input type="text" id="brandName" class="form-control" formControlName="brandName" required>
+      <input type="text" id="brandName" class="form-control audiowide-regular" formControlName="brandName" required>
     </div>
 
     <div class="mb-3">
       <label for="location" class="form-label">Székhely</label>
       <input type="text" id="location" class="form-control" formControlName="location" required>
     </div>
-
-    <div class="mb-3">
-      <label for="logoUrl" class="form-label">Logó URL</label>
-      <input type="text" id="logoUrl" class="form-control" formControlName="logoUrl">
-    </div>
-
+    
     <button type="submit" class="btn btn-success" [disabled]="brandForm.invalid">Mentés</button>
     <a type="button" class="btn btn-secondary ms-2" routerLink="/brands">Mégse</a>
   </form>
