@@ -47,7 +47,7 @@ namespace BikeStore.Endpoint.Controllers
             try
             {
                 logic.DeleteBikeModel(id);
-                return Ok("Bike model deleted successfully.");
+                return NoContent();
             }
             catch (Exception ex)
             {

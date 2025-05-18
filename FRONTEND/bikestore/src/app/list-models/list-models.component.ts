@@ -64,12 +64,12 @@ export class ListModelsComponent implements OnInit {
     this.router.navigate(['/models/edit', modelId]);
   }
 
-  deleteModel(modelId: string): void {
+  deleteModel(modelId: any): void {
     if (confirm('Biztosan törölni szeretnéd ezt a modellt?')) {
       this.dataService.deleteModel(modelId).subscribe({
-        next: () => this.loadData(),
-        error: () => alert('Nem sikerült törölni a modellt.')
+        next: () => this.loadData()
       });
     }
+    this.loadData()
   }
 }

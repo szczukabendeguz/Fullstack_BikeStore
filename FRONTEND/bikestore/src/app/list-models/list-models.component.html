@@ -15,7 +15,6 @@
             <strong>Első rugóút:</strong> {{ model.frontTravel }} mm<br>
             <strong>Hátsó rugóút:</strong> {{ model.backTravel }} mm<br>
             <strong>Ár:</strong> {{ model.askingPrice | currency:'USD' }}<br>
-            <strong>Id:</strong> {{ model.id }}<br>
           </p>
         </div>
         <div *ngIf="model.id" class="card-footer d-flex justify-content-between">

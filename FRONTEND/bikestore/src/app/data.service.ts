@@ -51,7 +51,7 @@ export class DataService {
     return this.http.put<Model>(`${this.apiUrl}/BikeModel/${id}`, modelData);
   }
 
-  deleteModel(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/BikeModel/${id}`);
+  deleteModel(id: string){
+    return this.http.delete(`${this.apiUrl}/BikeModel/${id}`);
   }
 }
