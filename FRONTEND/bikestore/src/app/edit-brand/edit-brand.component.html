@@ -1,13 +1,6 @@
 <div class="container mt-4">
   <h2>Márka szerkesztése</h2>
-
-  <div *ngIf="loading" class="text-center my-4">
-    <div class="spinner-border text-primary" role="status"></div>
-  </div>
-
-  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-
-  <form *ngIf="!loading && !error" [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="brandName" class="form-label">Márkanév</label>
       <input type="text" id="brandName" class="form-control audiowide-regular" formControlName="brandName" required>

@@ -10,8 +10,7 @@ import { Brand } from '../brand';
 })
 export class ListBrandsComponent implements OnInit {
   brands: Brand[] = [];
-  loading: boolean = false;
-  error: string | null = null;
+
 
   constructor(private dataService: DataService) { }
 
@@ -20,8 +19,6 @@ export class ListBrandsComponent implements OnInit {
   }
 
   loadBrands(): void {
-    this.loading = true;
-    this.error = null;
     this.dataService.getBrands().subscribe({
       next: (data : any) => {
         this.brands = data.map((brand: any) => ({
@@ -32,13 +29,7 @@ export class ListBrandsComponent implements OnInit {
           models: [],
           modelCount: 0
         }));
-        this.loading = false;
       },
-      error: (err) => {
-        this.error = 'Hiba történt a márkák betöltésekor. Kérjük, próbálja meg később.';
-        console.error('Error fetching brands:', err);
-        this.loading = false;
-      }
     });
   }
 
@@ -46,7 +37,6 @@ export class ListBrandsComponent implements OnInit {
   if (confirm('Biztosan törölni szeretnéd ezt a márkát?')) {
     this.dataService.deleteBrand(id).subscribe({
       next: () => this.loadBrands(),
-      error: err => this.error = 'A törlés sikertelen volt.'
     });
   }
 }

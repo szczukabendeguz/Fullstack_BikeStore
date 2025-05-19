@@ -16,8 +16,6 @@ export class EditModelComponent implements OnInit {
   modelForm!: FormGroup;
   brands: Brand[] = [];
   modelId!: string;
-  loading = true;
-  error: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,7 +41,6 @@ export class EditModelComponent implements OnInit {
   loadInitialData(): void {
     this.dataService.getBrands().subscribe({
       next: (brands: any) => this.brands = brands,
-      error: () => this.error = 'Nem sikerült betölteni a márkákat.'
     });
 
     this.dataService.getModelById(this.modelId).subscribe({
@@ -55,26 +52,16 @@ export class EditModelComponent implements OnInit {
           backTravel: model.backTravel,
           askingPrice: model.askingPrice
         });
-        this.loading = false;
-      },
-      error: () => {
-        this.error = 'Nem sikerült betölteni a modellt.';
-        this.loading = false;
       }
     });
   }
 
   onSubmit(): void {
     if (this.modelForm.invalid) return;
-
-    const updatedModel: ModelCreateUpdatePayload = {
-      id: this.modelId,
-      ...this.modelForm.value
-    };
-
-    this.dataService.updateModel(this.modelId, updatedModel).subscribe({
+    this.dataService.updateModel(this.modelId, this.modelForm.value).subscribe({
       next: () => this.router.navigate(['/models']),
-      error: () => this.error = 'Nem sikerült frissíteni a modellt.'
     });
+
+    this.router.navigate(['/models'])
   }
 }

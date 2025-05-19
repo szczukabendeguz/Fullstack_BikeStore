@@ -6,7 +6,7 @@
       <option *ngFor="let brand of brands" [ngValue]="brand.id">{{ brand.brandName }}</option>
     </select>
   </div>
-  <div class="row" *ngIf="!loading && models.length">
+  <div class="row" *ngIf="models.length">
     <div class="col-md-4 mb-4" *ngFor="let model of models">
       <div class="card h-100 shadow-sm">
         <div class="card-body">
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <div *ngIf="!loading && !models.length" class="alert alert-info">
+  <div *ngIf="!models.length" class="alert alert-info">
     Nincsenek megjeleníthető modellek.
   </div>
 </div>

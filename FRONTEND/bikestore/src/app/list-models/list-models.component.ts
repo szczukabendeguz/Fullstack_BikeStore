@@ -15,9 +15,6 @@ export class ListModelsComponent implements OnInit {
   allModels: Model[] = [];
   brands: Brand[] = [];
   selectedBrandId: string | null = null;
-  loading = true;
-  error: string | null = null;
-
   constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
@@ -25,18 +22,13 @@ export class ListModelsComponent implements OnInit {
   }
 
   loadData(): void {
-    this.loading = true;
-    this.error = null;
+
 
     this.dataService.getModelsAscendingPrice().subscribe({
       next: (models) => {
         this.models = models;
         this.allModels = models;
-        this.loading = false;
-      },
-      error: () => {
-        this.error = 'Nem sikerült betölteni a modelleket.';
-        this.loading = false;
+
       }
     });
 
@@ -55,7 +47,6 @@ export class ListModelsComponent implements OnInit {
     } else {
       this.dataService.getModelsByBrandId(this.selectedBrandId).subscribe({
         next: (filteredModels) => this.models = filteredModels,
-        error: () => this.error = 'Nem sikerült a szűrés.'
       });
     }
   }
