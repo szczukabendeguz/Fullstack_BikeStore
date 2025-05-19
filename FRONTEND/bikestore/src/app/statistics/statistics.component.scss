@@ -1,0 +1,26 @@
+.chart-container {
+  max-width: 800px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.chart-bars .bar {
+  width: 40px;
+  transition: height 0.5s;
+  border-radius: 5px;
+}
+
+
+@media (max-width: 768px) {
+  .chart-bars .bar {
+    width: 20px;
+  }
+}
+
+.scale-container {
+  width: 50px;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 0.8em;
+}
+

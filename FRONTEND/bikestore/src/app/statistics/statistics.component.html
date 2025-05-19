@@ -1,1 +1,21 @@
-<p>statistics works!</p>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center text-white">Legmagasabb átlagár statisztika márkánként</h2>
+
+    <div class="d-flex justify-content-center">
+        <div class="scale-container d-flex flex-column justify-content-between text-white">
+            <div class="h6">{{ maxPrice }} USD</div>
+            <div style="flex-grow: 1;"></div>
+            <div class="h6">0 USD</div>
+        </div>
+        <div class="chart-container border rounded p-4 bg-light">
+            <div class="row justify-content-center align-items-end chart-bars" style="height: 300px;">
+                <div class="col text-center d-flex flex-column justify-content-end align-items-center"
+                    *ngFor="let brand of displayedBrands">
+                    <div class="bar bg-primary mb-2" [title]="brand.avgPrice + ' USD'" [style.height]="getBarHeight(brand.avgPrice)">
+                    </div>
+                    <small>{{ brand.brandName }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

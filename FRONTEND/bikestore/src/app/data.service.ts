@@ -17,8 +17,8 @@ export class DataService {
     return this.http.post<Brand>(`${this.apiUrl}/BikeBrand`, brandData);
   }
 
-  getBrands() {
-    return this.http.get(`${this.apiUrl}/BikeBrand`);
+  getBrands(): Observable<Brand[]> {
+    return this.http.get<Brand[]>(`${this.apiUrl}/BikeBrand`);
   }
 
   getBrandById(id: string): Observable<Brand> {
@@ -32,8 +32,6 @@ export class DataService {
   deleteBrand(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/BikeBrand/${id}`);
   }
-
-  // ----- Model Endpoints -----
 
   createModel(modelData: ModelCreateUpdatePayload): Observable<Model> {
     return this.http.post<Model>(`${this.apiUrl}/BikeModel`, modelData);
