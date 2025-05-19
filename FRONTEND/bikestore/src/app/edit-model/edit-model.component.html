@@ -1,1 +1,44 @@
-<p>edit-model works!</p>
+<div class="container mt-4">
+  <h2>Modell szerkesztése</h2>
+
+  <form [formGroup]="modelForm" (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="mb-3">
+      <label for="brandId" class="form-label">Márka</label>
+      <select id="brandId" class="form-select" formControlName="brandId">
+        <option [ngValue]="null">-- Válassz márkát --</option>
+        <option *ngFor="let brand of brands" [ngValue]="brand.id">{{ brand.brandName }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="modelName" class="form-label">Modell neve</label>
+      <input id="modelName" type="text" class="form-control" formControlName="modelName">
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="frontTravel" class="form-label">Első rugóút (mm)</label>
+        <input id="frontTravel" type="number" class="form-control" formControlName="frontTravel">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="backTravel" class="form-label">Hátsó rugóút (mm)</label>
+        <input id="backTravel" type="number" class="form-control" formControlName="backTravel">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="askingPrice" class="form-label">Ár (USD)</label>
+      <input id="askingPrice" type="number" class="form-control" formControlName="askingPrice">
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-success" [disabled]="modelForm.invalid">Mentés</button>
+      <a type="button" class="btn btn-secondary" routerLink="/models">Mégse</a>
+    </div>
+  </form>
+
+  <div *ngIf="modelForm.invalid && modelForm.touched" class="alert alert-warning mt-3">
+    Kérlek töltsd ki az összes kötelező mezőt.
+  </div>
+</div>
