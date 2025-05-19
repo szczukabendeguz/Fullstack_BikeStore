@@ -43,6 +43,10 @@ export class DataService {
     return this.http.get<Model[]>(`${this.apiUrl}/BikeModel/brand/${brandId}`);
   }
 
+  getModelById(id: string): Observable<Model> {
+    return this.http.get<Model>(`${this.apiUrl}/BikeModel/${id}`);
+  }
+
   getModelsAscendingPrice(): Observable<Model[]> {
     return this.http.get<Model[]>(`${this.apiUrl}/BikeModel/ascending-price`);
   }

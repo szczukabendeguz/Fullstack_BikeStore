@@ -41,6 +41,20 @@ namespace BikeStore.Endpoint.Controllers
             return Ok(bikeModels);
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<BikeModelViewDto> GetBikeModelById(string id)
+        {
+            try
+            {
+                var model = logic.GetBikeModelById(id);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult DeleteBikeModel(string id)
         {

@@ -40,6 +40,18 @@ namespace BikeStore.Logic.Logic
             return bikeModelDtos;
         }
 
+        public BikeModelViewDto GetBikeModelById(string id)
+        {
+            var bikeModel = repo.FindById(id);
+            if (bikeModel == null)
+            {
+                throw new Exception("Bike model not found.");
+            }
+
+            return dtoProvider.Mapper.Map<BikeModelViewDto>(bikeModel);
+        }
+
+
         public IEnumerable<BikeModelViewDto> GetAllBikeModelsInAscendingPriceOrder()
         {
             var bikeModels = repo.GetAll()

@@ -10,6 +10,7 @@ export interface ModelCreateUpdatePayload {
 
 export class Model {
     id: string;
+    brandId: string | null;
     modelName: string | null;
     frontTravel: number;
     backTravel: number;
@@ -18,6 +19,7 @@ export class Model {
 
     constructor(
         id: string,
+        brandId: string | null,
         modelName: string | null,
         frontTravel: number,
         backTravel: number,
@@ -25,6 +27,7 @@ export class Model {
         userFullName: string | null
     ) {
         this.id = id;
+        this.brandId = brandId;
         this.modelName = modelName;
         this.frontTravel = frontTravel;
         this.backTravel = backTravel;
