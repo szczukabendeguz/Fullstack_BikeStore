@@ -11,6 +11,7 @@ import { EditModelComponent } from './edit-model/edit-model.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { provideHttpClient } from '@angular/common/http';
     ListModelsComponent,
     EditBrandComponent,
     EditModelComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
