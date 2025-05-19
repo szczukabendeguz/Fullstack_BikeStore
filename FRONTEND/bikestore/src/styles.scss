@@ -12,8 +12,10 @@ body {
 .frosted-glass {
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
-  border-radius: 10px;
-  padding: 1rem;
+
+  &-dark {
+    background: rgba(255, 255, 255, 0.9);
+  }
 }
 
 

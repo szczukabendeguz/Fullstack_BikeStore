@@ -8,7 +8,7 @@
   </div>
   <div class="row" *ngIf="models.length">
     <div class="col-md-4 mb-4" *ngFor="let model of models">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 shadow-sm frosted-glass">
         <div class="card-body">
           <h5 class="card-title">{{ model.modelName }}</h5>
           <p class="card-text">
@@ -17,7 +17,7 @@
             <strong>Ár:</strong> {{ model.askingPrice | currency:'USD' }}<br>
           </p>
         </div>
-        <div *ngIf="model.id" class="card-footer d-flex justify-content-between">
+        <div *ngIf="model.id" class="card-footer frosted-glass-dark d-flex justify-content-between">
           <button class="btn btn-sm btn-outline-primary" (click)="editModel(model.id)">Szerkesztés</button>
           <button class="btn btn-sm btn-outline-danger" (click)="deleteModel(model.id)">Törlés</button>
         </div>
