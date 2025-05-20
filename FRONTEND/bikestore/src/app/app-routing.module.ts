@@ -13,6 +13,8 @@ const routes: Routes = [
   {path: 'statistics', component: StatisticsComponent},
   { path: 'brands/edit/:id', component: EditBrandComponent},
   { path: 'models/edit/:id', component: EditModelComponent },
+  { path: 'brands/new', component: EditBrandComponent },
+  { path: 'models/new', component: EditModelComponent },
   {path: '**', redirectTo: '/brands', pathMatch: 'full'}
   
 ];

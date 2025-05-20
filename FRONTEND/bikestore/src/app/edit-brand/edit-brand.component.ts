@@ -12,7 +12,8 @@ import { Brand } from '../brand';
 })
 export class EditBrandComponent {
   brandForm!: FormGroup;
-  brandId!: string;
+  brandId!: string | null;
+  isNew = false;
 
   constructor(
     public route: ActivatedRoute,
@@ -20,18 +21,21 @@ export class EditBrandComponent {
     private dataService: DataService,
     private router: Router
   ) {
-    this.brandId = this.route.snapshot.paramMap.get('id')!;
+    this.brandId = this.route.snapshot.paramMap.get('id');
+    this.isNew = !this.brandId || this.brandId === 'new';
     this.brandForm = this.fb.group({
       brandName: ['', Validators.required],
       location: ['', Validators.required],
       logoUrl: ['']
     });
 
-    this.dataService.getBrandById(this.brandId).subscribe({
-      next: (brand: Brand) => {
-        this.brandForm.patchValue(brand);
-      }
-    });
+    if (!this.isNew && this.brandId) {
+      this.dataService.getBrandById(this.brandId).subscribe({
+        next: (brand: Brand) => {
+          this.brandForm.patchValue(brand);
+        }
+      });
+    }
   }
 
   onSubmit(): void {
@@ -39,8 +43,14 @@ export class EditBrandComponent {
       return;
     }
 
-    this.dataService.updateBrand(this.brandId, this.brandForm.value).subscribe({
-      next: () => this.router.navigate(['/brands'])
-    });
+    if (this.isNew) {
+      this.dataService.createBrand(this.brandForm.value).subscribe({
+        next: () => this.router.navigate(['/brands'])
+      });
+    } else if (this.brandId) {
+      this.dataService.updateBrand(this.brandId, this.brandForm.value).subscribe({
+        next: () => this.router.navigate(['/brands'])
+      });
+    }
   }
 }
