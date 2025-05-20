@@ -13,7 +13,7 @@ namespace BikeStore.Entities
     {
         public BikeModel() { }
 
-        public BikeModel(string brandId, string modelName, int frontTravel, int backTravel, int askingPrice, string userId)
+        public BikeModel(string brandId, string modelName, int frontTravel, int backTravel, int askingPrice)
         {
             Id = Guid.NewGuid().ToString();
             BrandId = brandId; 
@@ -21,8 +21,8 @@ namespace BikeStore.Entities
             FrontTravel = frontTravel;
             BackTravel = backTravel;
             AskingPrice = askingPrice;
-            UserId = userId;
         }
+
 
         [StringLength(50)]
         [Key]
@@ -45,8 +45,5 @@ namespace BikeStore.Entities
         public int BackTravel { get; set; }
 
         public int AskingPrice { get; set; }
-
-        [StringLength(50)]
-        public string UserId { get; set; }
     }
 }

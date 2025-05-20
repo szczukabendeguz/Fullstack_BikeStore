@@ -43,8 +43,8 @@ namespace BikeStore.Logic.Helpers
                 cfg.CreateMap<BikeModel, BikeModelViewDto>()
                 .AfterMap((src, dest) =>
                 {
-                    var user = userManager.Users.First(u => u.Id == src.UserId);
-                    dest.UserFullName = user.LastName! + " " + user.FirstName;
+
+
                 });
             });
 

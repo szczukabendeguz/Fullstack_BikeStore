@@ -49,11 +49,11 @@ export class DataService {
     return this.http.get<Model[]>(`${this.apiUrl}/BikeModel/ascending-price`);
   }
 
-  updateModel(id: string, modelData: ModelCreateUpdatePayload): Observable<Model> {
-    return this.http.put<Model>(`${this.apiUrl}/BikeModel/${id}`, modelData);
+  updateModel(id: string, modelData: ModelCreateUpdatePayload): Observable<any> {
+    return this.http.put(`${this.apiUrl}/BikeModel/${id}`, modelData, { responseType: 'text' });
   }
 
-  deleteModel(id: string){
+  deleteModel(id: string) {
     return this.http.delete(`${this.apiUrl}/BikeModel/${id}`);
   }
 }

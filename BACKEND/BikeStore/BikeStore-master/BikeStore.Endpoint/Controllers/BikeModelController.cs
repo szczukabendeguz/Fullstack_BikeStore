@@ -22,10 +22,9 @@ namespace BikeStore.Endpoint.Controllers
         }
 
         [HttpPost]
-        public async Task AddBikeModel(BikeModelCreateDto dto)
+        public void AddBikeModel(BikeModelCreateDto dto)
         {
-            var user = await userManager.GetUserAsync(User);
-            logic.AddBikeModel(dto, user.Id);
+            logic.AddBikeModel(dto);
         }
 
         [HttpGet("brand/{brandId}")]

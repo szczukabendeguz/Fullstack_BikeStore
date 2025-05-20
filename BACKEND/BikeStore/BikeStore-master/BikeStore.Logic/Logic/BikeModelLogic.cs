@@ -21,10 +21,9 @@ namespace BikeStore.Logic.Logic
             this.dtoProvider = dtoProvider;
         }
 
-        public void AddBikeModel(BikeModelCreateDto dto, string userId)
+        public void AddBikeModel(BikeModelCreateDto dto)
         {
             var model = dtoProvider.Mapper.Map<BikeModel>(dto);
-            model.UserId = userId;
             repo.Create(model);
         }
 
