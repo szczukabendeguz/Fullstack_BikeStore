@@ -1,17 +1,17 @@
 <div class="container mt-4">
-  <h2>Márka szerkesztése</h2>
+  <h2>Brand editing</h2>
   <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label for="brandName" class="form-label">Márkanév</label>
+      <label for="brandName" class="form-label">Brand name</label>
       <input type="text" id="brandName" class="form-control audiowide-regular" formControlName="brandName" required>
     </div>
 
     <div class="mb-3">
-      <label for="location" class="form-label">Székhely</label>
+      <label for="location" class="form-label">Headquarters</label>
       <input type="text" id="location" class="form-control" formControlName="location" required>
     </div>
     
-    <button type="submit" class="btn btn-success" [disabled]="brandForm.invalid">Mentés</button>
-    <a type="button" class="btn btn-secondary ms-2" routerLink="/brands">Mégse</a>
+    <button type="submit" class="btn btn-success" [disabled]="brandForm.invalid">Save</button>
+    <a type="button" class="btn btn-secondary ms-2" routerLink="/brands">Cancel</a>
   </form>
 </div>

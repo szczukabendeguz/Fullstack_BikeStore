@@ -1,12 +1,12 @@
 <div class="container mt-4">
-  <h2>Kerékpár Modellek</h2>
+  <h2>Bike models</h2>
   <div class="d-flex justify-content-between mb-3">
     <select class="form-select w-auto" [(ngModel)]="selectedBrandId" (change)="onBrandChange()">
-      <option [ngValue]="null">-- Összes márka --</option>
+      <option [ngValue]="null">-- Any brand --</option>
       <option *ngFor="let brand of brands" [ngValue]="brand.id">{{ brand.brandName }}</option>
     </select>
     <a class="btn btn-primary" routerLink="/models/new">
-      <i class="bi bi-plus-circle"></i> Új modell hozzáadása
+      <i class="bi bi-plus-circle"></i> Add new model
     </a>
   </div>
   
@@ -16,20 +16,20 @@
         <div class="card-body">
           <h5 class="card-title">{{ model.modelName }}</h5>
           <p class="card-text">
-            <strong>Első rugóút:</strong> {{ model.frontTravel }} mm<br>
-            <strong>Hátsó rugóút:</strong> {{ model.backTravel }} mm<br>
-            <strong>Ár:</strong> {{ model.askingPrice | currency:'USD' }}<br>
+            <strong>Front travel:</strong> {{ model.frontTravel }} mm<br>
+            <strong>Rear travel:</strong> {{ model.backTravel }} mm<br>
+            <strong>Price:</strong> {{ model.askingPrice | currency:'USD' }}<br>
           </p>
         </div>
         <div *ngIf="model.id" class="card-footer frosted-glass-dark d-flex justify-content-between">
-          <button class="btn btn-sm btn-outline-primary" (click)="editModel(model.id)">Szerkesztés</button>
-          <button class="btn btn-sm btn-outline-danger" (click)="deleteModel(model.id)">Törlés</button>
+          <button class="btn btn-sm btn-outline-primary" (click)="editModel(model.id)">Edit</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="deleteModel(model.id)">Delete</button>
         </div>
       </div>
     </div>
   </div>
 
   <div *ngIf="!models.length" class="alert alert-info">
-    Nincsenek megjeleníthető modellek.
+    There are no models to display.
   </div>
 </div>
