@@ -1,0 +1,49 @@
+.glass-card {
+    background: rgba(15, 23, 42, 0.9); /* Darker, more solid background for contrast */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.layer-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 24px;
+    border-radius: 10px;
+    border-left: 5px solid #ffc107;
+    height: 100%;
+    transition: all 0.3s ease;
+
+    h3 {
+        color: #ffc107 !important; /* Force gold color for subheaders */
+        font-weight: bold;
+    }
+
+    p {
+        color: #f8fafc !important; /* Near-white for high contrast */
+        line-height: 1.6;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.1);
+        border-left-color: #ffffff;
+    }
+}
+
+h1 {
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.text-light {
+    color: #f1f5f9 !important;
+}
+
+.badge {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.95rem;
+    background-color: #334155 !important;
+    border-color: #475569 !important;
+}
+

@@ -1,0 +1,76 @@
+<div class="container architecture-page mt-4 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="glass-card p-5">
+        <h1 class="audiowide-regular text-center mb-5 text-white">System Architecture & Design</h1>
+
+        <section class="mb-5">
+          <h2 class="text-warning h4 mb-3"><i class="bi bi-rocket-takeoff me-2"></i>Project Overview</h2>
+          <p class="text-light">
+            This project was developed as a university assignment with the primary goal of mastering the 
+            <strong>N-tier (Layered) Architecture</strong> pattern using modern web technologies. 
+            The focus was not just on building a functional bike store, but on creating a 
+            scalable, maintainable, and decoupled backend system.
+          </p>
+        </section>
+
+        <section class="mb-5">
+          <h2 class="text-warning h4 mb-3"><i class="bi bi-layers me-2"></i>Backend Layering</h2>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="layer-item">
+                <h3>1. Endpoint Layer (API)</h3>
+                <p>ASP.NET Core Web API controllers. Handles HTTP requests, input validation, and routing. Decoupled from logic via Dependency Injection.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="layer-item">
+                <h3>2. Logic Layer (Services)</h3>
+                <p>The "Brain" of the system. Contains business rules, complex calculations (like average price), and orchestrates data flow.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="layer-item">
+                <h3>3. Data Layer (Repository)</h3>
+                <p>Entity Framework Core implementation. Manages database context, migrations, and CRUD operations against SQL Server.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="layer-item">
+                <h3>4. Entities Layer</h3>
+                <p>Plain Old CLR Objects (POCOs) representing the data models. Shared across all layers to maintain structural integrity.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5">
+          <h2 class="text-warning h4 mb-3"><i class="bi bi-cpu me-2"></i>Tech Stack</h2>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-dark border border-secondary p-2">ASP.NET Core 8.0</span>
+            <span class="badge bg-dark border border-secondary p-2">Entity Framework Core</span>
+            <span class="badge bg-dark border border-secondary p-2">SQL Server</span>
+            <span class="badge bg-dark border border-secondary p-2">Angular 19</span>
+            <span class="badge bg-dark border border-secondary p-2">TypeScript</span>
+            <span class="badge bg-dark border border-secondary p-2">Bootstrap 5</span>
+            <span class="badge bg-dark border border-secondary p-2">SCSS</span>
+          </div>
+        </section>
+
+        <section class="mb-5">
+          <h2 class="text-warning h4 mb-3"><i class="bi bi-lightbulb me-2"></i>Key Learnings</h2>
+          <ul class="text-light">
+            <li>Implementation of the <strong>Dependency Injection</strong> pattern to ensure decoupling between layers.</li>
+            <li>Handling <strong>One-to-Many relationships</strong> in EF Core and reflecting them in the UI.</li>
+            <li>Creating a <strong>Responsive Single Page Application (SPA)</strong> that provides a desktop-like experience.</li>
+            <li>Simulating complex backend behavior in a static environment (Demo Mode) using Angular Interceptors.</li>
+          </ul>
+        </section>
+
+        <div class="text-center mt-5">
+          <a routerLink="/brands" class="btn btn-outline-warning btn-lg">Back to Store</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

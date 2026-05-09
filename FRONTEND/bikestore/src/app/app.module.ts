@@ -9,9 +9,11 @@ import { ListModelsComponent } from './list-models/list-models.component';
 import { EditBrandComponent } from './edit-brand/edit-brand.component';
 import { EditModelComponent } from './edit-model/edit-model.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { ArchitectureComponent } from './architecture/architecture.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { DemoInterceptor } from './demo.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { FooterComponent } from './footer/footer.component';
     EditBrandComponent,
     EditModelComponent,
     StatisticsComponent,
-    FooterComponent
+    FooterComponent,
+    ArchitectureComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,14 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [provideHttpClient()],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: DemoInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

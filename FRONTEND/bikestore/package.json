@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:demo": "ng build --base-href /Fullstack_BikeStore/",
+    "deploy": "npx gh-pages -d dist/bikestore/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

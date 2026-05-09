@@ -5,12 +5,14 @@ import { ListModelsComponent } from './list-models/list-models.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { EditBrandComponent } from './edit-brand/edit-brand.component';
 import { EditModelComponent } from './edit-model/edit-model.component';
+import { ArchitectureComponent } from './architecture/architecture.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/brands', pathMatch: 'full'},
   {path: 'brands', component: ListBrandsComponent},
   {path: 'models', component: ListModelsComponent},
   {path: 'statistics', component: StatisticsComponent},
+  {path: 'architecture', component: ArchitectureComponent},
   { path: 'brands/edit/:id', component: EditBrandComponent},
   { path: 'models/edit/:id', component: EditModelComponent },
   { path: 'brands/new', component: EditBrandComponent },
